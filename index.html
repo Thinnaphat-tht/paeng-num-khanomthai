@@ -8,7 +8,6 @@
 <link rel="canonical" href="https://thinnaphat-tht.github.io/paeng-num-khanomthai/">
 <meta name="theme-color" content="#2b3a99">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<script>if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js')</script>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="th_TH">
 <meta property="og:site_name" content="แป้งนุ่ม ขนมไทย by บุ๋ม">
@@ -17,209 +16,262 @@
 <meta property="og:url" content="https://thinnaphat-tht.github.io/paeng-num-khanomthai/">
 <meta property="og:image" content="https://thinnaphat-tht.github.io/paeng-num-khanomthai/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ถาดขนมไทยหลากสีกับชื่อร้านแป้งนุ่ม">
+<meta property="og:image:alt" content="ถาดขนมไทยของร้านแป้งนุ่มกับชื่อร้าน">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;600&family=Pattaya&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/platter-sm.webp" imagesrcset="img/platter-sm.webp 640w, img/platter.webp 1200w" imagesizes="(min-width:900px) 46vw, 88vw" type="image/webp" fetchpriority="high">
+<script>document.documentElement.classList.add('pre');setTimeout(()=>document.documentElement.classList.remove('pre'),3000)</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Bakery","name":"ร้านแป้งนุ่มขนมไทย by บุ๋ม","servesCuisine":"ขนมไทย","telephone":"+66611544422","url":"https://thinnaphat-tht.github.io/paeng-num-khanomthai/","image":"https://thinnaphat-tht.github.io/paeng-num-khanomthai/og.png","hasMap":"https://maps.app.goo.gl/9uf2aduJe5j9QstY6","address":{"@type":"PostalAddress","streetAddress":"ถ. พุทธมณฑลสาย 5 ก่อนแยกไฟแดง ติดหอภาพยนตร์","addressLocality":"ศาลายา พุทธมณฑล","addressRegion":"นครปฐม","postalCode":"73170","addressCountry":"TH"},"geo":{"@type":"GeoCoordinates","latitude":13.8004845,"longitude":100.3034224},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:30","closes":"18:00"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"80"}}
+{"@context":"https://schema.org","@type":"Bakery","name":"ร้านแป้งนุ่มขนมไทย by บุ๋ม","servesCuisine":"ขนมไทย","telephone":"+66611544422","url":"https://thinnaphat-tht.github.io/paeng-num-khanomthai/","image":["https://thinnaphat-tht.github.io/paeng-num-khanomthai/img/platter.jpg","https://thinnaphat-tht.github.io/paeng-num-khanomthai/img/shelf.jpg"],"hasMap":"https://maps.app.goo.gl/9uf2aduJe5j9QstY6","address":{"@type":"PostalAddress","streetAddress":"ถ. พุทธมณฑลสาย 5 ก่อนแยกไฟแดง ติดหอภาพยนตร์","addressLocality":"ศาลายา พุทธมณฑล","addressRegion":"นครปฐม","postalCode":"73170","addressCountry":"TH"},"geo":{"@type":"GeoCoordinates","latitude":13.8004845,"longitude":100.3034224},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:30","closes":"18:00"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"80"}}
 </script>
 <style>
 :root{
  --coconut:#fdfdf8; --anchan:#2b3a99; --anchan-deep:#1c2670; --pandan:#5c9e3f; --leaf:#1e4d2b;
- --thong:#f0b429; --bua:#f28ab2; --tray:#e9edfa; --line:#cdd3ef;
- --step--1:.9rem; --step0:1.0625rem; --step1:1.35rem; --step2:clamp(1.9rem,5vw,2.75rem); --step3:clamp(4.5rem,19vw,10.5rem);
+ --thong:#f0b429; --tray:#e9edfa; --line:#cdd3ef; --muted:#4a5390;
+ --ease:cubic-bezier(.16,1,.3,1);
+ --step--1:.9rem; --step0:1.0625rem; --step1:1.35rem; --step2:clamp(2.1rem,5.5vw,3.4rem); --step3:clamp(4.2rem,15vw,9.5rem);
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{font:400 var(--step0)/1.75 "IBM Plex Sans Thai Looped",system-ui,sans-serif;color:var(--anchan-deep);background:var(--coconut);overflow-x:hidden}
 h1,h2{font-family:Pattaya,"IBM Plex Sans Thai Looped",sans-serif;font-weight:400;line-height:1.1;color:var(--anchan)}
-h2{font-size:var(--step2);margin-bottom:.45em}
+h2{font-size:var(--step2);margin-bottom:.5em}
 h3{font-size:var(--step1);line-height:1.3;font-weight:600}
 p{max-width:34em}
 a{color:inherit}
+img{display:block;max-width:100%}
 :focus-visible{outline:3px solid var(--thong);outline-offset:3px;border-radius:6px}
-.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.6em 1.4em;border-radius:14px;font-weight:600;text-decoration:none;background:var(--anchan);color:var(--coconut);border:2px solid var(--anchan)}
-.btn:hover{background:var(--anchan-deep);border-color:var(--anchan-deep)}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+section[id]{scroll-margin-top:76px}
+/* Thai tone marks sit high: pad the mask so they are never clipped */
+.line{display:block;overflow:hidden;padding:.32em .04em .22em;margin:-.32em -.04em -.22em}
+.line>span{display:inline-block;will-change:transform}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.6em 1.5em;border-radius:999px;font-weight:600;text-decoration:none;background:var(--anchan);color:var(--coconut);border:2px solid var(--anchan);transition:background-color .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease)}
 .btn.ghost{background:transparent;color:var(--anchan)}
-.btn.ghost:hover{background:var(--tray)}
-
-/* top bar */
-.bar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Pattaya;font-size:1.35rem;color:var(--anchan)}
-.mark svg{width:40px;height:40px}
-.open{display:inline-flex;align-items:center;gap:8px;font-size:var(--step--1);font-weight:600}
-.open::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--line)}
-.open.is-open::before{background:var(--pandan);box-shadow:0 0 0 4px rgba(92,158,63,.2)}
-
-/* hero: the display case */
-.hero{position:relative;overflow:hidden;padding:0}
-.hero-grid{display:grid;gap:8px;position:relative;z-index:2}
-.hero h1{font-size:var(--step3);letter-spacing:-.01em;margin-top:12px}
-.hero .sub{font-family:Pattaya;font-size:clamp(1.5rem,5vw,2.4rem);color:var(--pandan);line-height:1.2;margin-top:-.15em}
-.hero .lead{margin:18px 0 22px;font-size:1.1rem}
-.cta{display:flex;flex-wrap:wrap;gap:10px}
-.case{position:relative;margin:36px 0 0;height:min(110vw,560px)}
-.layer{position:absolute;inset:0;will-change:transform}
-.tray{position:absolute;inset:0 -6vw 0 -6vw;background:var(--tray);border-radius:28px 28px 0 0;border:3px solid var(--line);border-bottom:0;padding:18px;display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:12px}
-.tray svg{width:100%;height:100%;animation:pop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:calc(var(--i) * 45ms + 200ms)}
-@keyframes pop{from{transform:scale(.3);opacity:0}}
-.leaves svg{position:absolute;width:62%;height:auto}
-.leaves .a{left:-18%;bottom:-8%;transform:rotate(-12deg)}
-.leaves .b{right:-20%;top:-6%;transform:rotate(160deg)}
-.float svg{position:absolute;filter:drop-shadow(0 10px 14px rgba(28,38,112,.22))}
-.float .x{width:26%;left:6%;top:-8%}
-.float .y{width:22%;right:8%;top:30%}
-.float .z{width:18%;left:40%;bottom:6%}
-@media(min-width:900px){
- .hero-grid{grid-template-columns:1.05fr 1fr;align-items:center;min-height:calc(100svh - 70px);gap:40px}
- .case{margin:0;height:min(76vh,640px)}
- .tray{inset:0;border-radius:32px;border-bottom:3px solid var(--line)}
+.btn:active{transform:scale(.96);transition-duration:.12s}
+@media(hover:hover){
+ .btn:hover{background:var(--anchan-deep);border-color:var(--anchan-deep);color:var(--coconut);box-shadow:0 12px 26px -12px rgba(28,38,112,.6)}
+ .btn:not(.magnetic):hover{transform:translateY(-2px)}
 }
 
-/* about */
-.about{padding:96px 0 72px;display:grid;gap:28px}
-.facts{list-style:none;padding:0;display:grid;align-content:start}
+/* nav */
+.nav{position:sticky;top:0;z-index:30;transition:background-color .4s var(--ease),box-shadow .4s var(--ease)}
+.nav.solid{background:rgba(253,253,248,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:Pattaya;font-size:1.35rem;color:var(--anchan)}
+.mark svg{width:38px;height:38px;transition:transform .6s var(--ease)}
+.links{display:none;gap:28px;list-style:none;padding:0}
+.links a{position:relative;text-decoration:none;font-weight:600;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pandan);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav .btn{min-height:42px;padding:.4em 1.1em;font-size:.95rem}
+.nav .call{display:none}
+.menu-btn{width:46px;height:46px;border-radius:50%;border:2px solid var(--anchan);background:transparent;color:var(--anchan);display:grid;place-items:center;cursor:pointer}
+.menu-btn span{grid-area:1/1;display:block;width:18px;height:2px;background:currentColor;transition:transform .45s var(--ease)}
+.menu-btn span:first-child{transform:translateY(-4px)}
+.menu-btn span:last-child{transform:translateY(4px)}
+.menu-btn[aria-expanded="true"] span:first-child{transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:last-child{transform:rotate(-45deg)}
+.mnav{position:fixed;inset:68px 0 auto 0;z-index:29;background:var(--coconut);padding:12px 20px 28px;border-bottom:2px solid var(--line);clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .55s var(--ease),visibility 0s .55s}
+.mnav.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .55s var(--ease)}
+.mnav a{display:block;font-family:Pattaya;font-size:1.9rem;color:var(--anchan);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--tray)}
+.mnav .btn{margin-top:18px;width:100%;font-family:inherit;font-size:1rem}
+@media(hover:hover){.links a:hover::after{transform:scaleX(1);transform-origin:left}.mark:hover svg{transform:rotate(-10deg) scale(1.06)}}
+@media(min-width:900px){.links{display:flex}.nav .call{display:inline-flex}.menu-btn,.mnav{display:none}}
+
+/* hero */
+.hero{position:relative;padding:12px 0 40px;overflow:hidden}
+.hero-grid{display:grid;gap:36px;align-items:center}
+.hero h1{font-size:var(--step3);letter-spacing:-.01em;line-height:1.02}
+.hero .sub{font-family:Pattaya;font-size:clamp(1.5rem,4.6vw,2.3rem);color:var(--pandan);line-height:1.2;margin-top:.2em}
+.hero .lead{margin:18px 0 26px;font-size:1.12rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:26px;font-size:var(--step--1);font-weight:600;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px}
+.status::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--line)}
+.status.is-open::before{background:var(--pandan);box-shadow:0 0 0 4px rgba(92,158,63,.2)}
+.stage{position:relative;width:min(100%,560px);margin-inline:auto;aspect-ratio:1}
+.stage .depth{position:absolute;inset:0;pointer-events:none}
+.ring{position:absolute;inset:-4%;border-radius:50%;border:2px dashed var(--line)}
+.leaf{position:absolute;width:58%}
+.leaf.a{left:-22%;bottom:2%;transform:rotate(-18deg)}
+.leaf.b{right:-24%;top:0;transform:rotate(158deg)}
+.platter{position:absolute;inset:4%;border-radius:50%;overflow:hidden;clip-path:circle(50% at 50% 50%);box-shadow:0 30px 60px -30px rgba(28,38,112,.45);background:var(--tray)}
+.platter img{width:100%;height:100%;object-fit:cover}
+.stage figcaption{position:absolute;right:0;bottom:-6px;font-size:.8rem;color:var(--muted)}
+@media(min-width:900px){.hero{padding-top:24px}.hero-grid{grid-template-columns:1fr 1.05fr;min-height:calc(100svh - 92px)}}
+
+/* about: editorial overlap */
+.about{padding:110px 0 90px;display:grid;gap:28px}
+.frame{overflow:hidden;border-radius:6px;background:var(--tray);clip-path:inset(0 0 0 0)}
+.frame picture{display:block;height:100%;transition:transform 1.1s var(--ease)}
+.frame img{width:100%;height:100%;object-fit:cover;will-change:transform}
+@media(hover:hover){.frame:hover picture{transform:scale(1.04)}}
+.about .frame{aspect-ratio:4/3}
+.about .copy{background:var(--coconut);position:relative}
+.facts{list-style:none;padding:0;margin-top:18px}
 .facts li{display:flex;gap:12px;align-items:baseline;padding:12px 0;border-bottom:2px dotted var(--line)}
-.facts b{min-width:6.5em;color:var(--leaf)}
-@media(min-width:900px){.about{grid-template-columns:1.2fr 1fr;gap:64px}}
+.facts b{min-width:6em;color:var(--leaf)}
+.credit{font-size:.8rem;color:var(--muted);margin-top:10px}
+@media(min-width:900px){
+ .about{grid-template-columns:repeat(12,1fr);align-items:center}
+ .about .shot{grid-column:1/9;grid-row:1}
+ .about .copy{grid-column:8/13;grid-row:1;padding:40px 0 40px 44px;margin-top:180px;box-shadow:-24px 0 0 var(--coconut)}
+}
 
-/* menu as tray rows */
-.menu{padding:72px 0}
-.rows{list-style:none;padding:0;margin-top:12px;max-width:760px}
-.rows li{display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:center;padding:18px 0;border-top:3px solid var(--tray)}
-.rows li:last-child{border-bottom:3px solid var(--tray)}
-.rows svg{width:76px;height:76px;background:var(--tray);border-radius:18px;padding:8px}
-.rows p{color:#47508f}
-.menu .note{margin-top:18px;font-size:var(--step--1)}
+/* menu */
+.menu{padding:90px 0}
+.menu .wrap{display:grid;gap:24px}
+.rows{list-style:none;padding:0}
+.rows li{display:grid;gap:4px;padding:22px 0;border-top:2px solid var(--tray)}
+.rows li:last-child{border-bottom:2px solid var(--tray)}
+.rows h3{font-family:Pattaya;font-weight:400;font-size:clamp(1.6rem,3.6vw,2.2rem);color:var(--anchan)}
+.rows p{color:var(--muted)}
+@media(min-width:900px){.menu .wrap{grid-template-columns:1fr 1.6fr;gap:64px}.menu .head{position:sticky;top:110px;align-self:start}.rows li{grid-template-columns:1fr 1.1fr;align-items:baseline;gap:32px}}
 
-/* reviews */
-.voices{background:var(--anchan);color:var(--coconut);padding:88px 0}
+/* gallery */
+.gallery{padding:40px 0 110px}
+.grid{display:grid;gap:16px}
+.grid .frame{aspect-ratio:4/3}
+@media(min-width:900px){
+ .grid{grid-template-columns:7fr 5fr;grid-template-rows:1fr 1fr;height:min(78vh,720px)}
+ .grid .frame{aspect-ratio:auto;height:100%}
+ .grid .g1{grid-row:1/3}
+}
+
+/* reviews: expands from an inset card to full bleed on scroll */
+.voices{background:var(--anchan);color:var(--coconut);padding:110px 0}
 .voices h2{color:var(--thong)}
-.voices blockquote{font-size:clamp(1.2rem,3vw,1.65rem);line-height:1.6;max-width:30em;padding:26px 0;border-top:2px solid rgba(253,253,248,.18)}
+.voices .score{font-weight:600;color:#c9cff3;margin:-6px 0 20px}
+.voices blockquote{font-size:clamp(1.2rem,3vw,1.7rem);line-height:1.6;max-width:28em;padding:28px 0;border-top:2px solid rgba(253,253,248,.18)}
 .voices blockquote:nth-of-type(2){margin-left:auto}
 .voices cite{display:block;margin-top:10px;font-size:var(--step--1);font-style:normal;color:#c9cff3}
 
 /* visit */
-.visit{padding:96px 0;display:grid;gap:40px}
-.sign{background:var(--leaf);color:var(--coconut);border-radius:28px;padding:32px 28px}
+.visit{padding:110px 0;display:grid;gap:40px}
+.sign{background:var(--leaf);color:var(--coconut);border-radius:6px;padding:36px 30px}
 .sign h2{color:var(--thong)}
-.sign .hours{font-family:Pattaya;font-size:clamp(2.6rem,9vw,4rem);line-height:1.1}
+.sign .hours{font-family:Pattaya;font-size:clamp(2.8rem,9vw,4.4rem);line-height:1.15}
 .sign small{display:block;margin-top:14px;opacity:.85}
-@media(min-width:900px){.visit{grid-template-columns:1fr 1fr;align-items:center;gap:64px}}
+@media(min-width:900px){.visit{grid-template-columns:1fr 1fr;align-items:center;gap:72px}}
 
-footer{border-top:3px solid var(--tray);padding:40px 0 120px}
+footer{border-top:2px solid var(--tray);padding:48px 0 130px}
 footer .wrap{display:grid;gap:14px}
-footer .big{font-family:Pattaya;font-size:clamp(2rem,7vw,3rem);color:var(--anchan);text-decoration:none;line-height:1.1}
-footer small{color:#5b6399}
-@media(min-width:900px){footer{padding-bottom:48px}}
+footer .big{font-family:Pattaya;font-size:clamp(2.2rem,8vw,3.6rem);color:var(--anchan);text-decoration:none;line-height:1.15;width:fit-content;transition:color .35s var(--ease)}
+footer .row{display:flex;flex-wrap:wrap;gap:12px}
+footer small{color:var(--muted)}
+@media(hover:hover){footer .big:hover{color:var(--pandan)}}
+@media(min-width:900px){footer{padding-bottom:56px}}
 
 .dock{position:fixed;inset:auto 0 0;z-index:20;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(253,253,248,.95);backdrop-filter:blur(10px);border-top:2px solid var(--tray)}
 @media(min-width:900px){.dock{display:none}}
 
-/* motion system: one easing, one distance, one stagger step */
-:root{--ease:cubic-bezier(.2,.7,.2,1);--dur:.8s;--rise:18px;--step:90ms}
-.tray{animation:settle 1.6s var(--ease) both}
-@keyframes settle{from{transform:scale(1.07);clip-path:inset(10% 10% 10% 10% round 32px);opacity:0}}
-.js [data-rv]{opacity:0;transform:translateY(var(--rise));transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease),clip-path 1.1s var(--ease);transition-delay:calc(var(--d,0) * var(--step))}
-.js [data-rv].in{opacity:1;transform:none}
-.js .mask[data-rv]{clip-path:inset(35% 0 0 0 round 28px)}
-.js .mask[data-rv].in{clip-path:inset(0 0 0 0 round 28px)}
-.js h1[data-rv],.js h2[data-rv]{opacity:1;transform:none}
-.w{display:inline-block;white-space:pre}
-.js [data-rv] .w{opacity:0;transform:translateY(.45em);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i) * 70ms)}
-.js [data-rv].in .w{opacity:1;transform:none}
-
-/* micro-interactions: hover only where a pointer hovers, press everywhere */
-.btn{transition:transform .3s var(--ease),background-color .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
-.btn:active{transform:scale(.96);transition-duration:.1s}
-a:not(.btn){text-decoration-thickness:2px;text-underline-offset:4px;transition:color .3s var(--ease),text-decoration-color .3s var(--ease)}
-.mark svg{transition:transform .5s var(--ease)}
-@media(hover:hover){
- .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(28,38,112,.55)}
- .btn:active{transform:translateY(0) scale(.96)}
- .mark:hover svg{transform:rotate(-8deg) scale(1.06)}
- footer .big:hover{color:var(--pandan)}
- a:not(.btn):not(.mark):not(.big):hover{color:var(--pandan)}
-}
-
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tray,.tray svg{animation:none}.layer{transform:none!important}.btn,.btn:hover,.btn:active,.mark:hover svg{transform:none}}
+/* hero targets wait for the intro timeline (head script removes .pre after 3s if GSAP never loads) */
+.pre .hero h1,.pre .hero [data-hero],.pre .platter,.pre .stage .depth{opacity:0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.btn:hover,.btn:active{transform:none}.frame picture,.mark svg{transition:none}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <defs>
-  <symbol id="k-tom" viewBox="0 0 100 100"><circle cx="50" cy="54" r="34" fill="#fdfdf8"/><circle cx="50" cy="54" r="34" fill="none" stroke="#dfe2d0" stroke-width="3"/><ellipse cx="40" cy="42" rx="12" ry="7" fill="#fff"/><g fill="#d9dccb"><circle cx="36" cy="60" r="3"/><circle cx="56" cy="68" r="3"/><circle cx="64" cy="48" r="3"/><circle cx="48" cy="52" r="2.5"/></g></symbol>
-  <symbol id="k-paep" viewBox="0 0 100 100"><path d="M10 70C10 36 30 22 50 22s40 14 40 48z" fill="#f6e3a6"/><path d="M10 70C10 36 30 22 50 22" fill="none" stroke="#e5c56e" stroke-width="5"/><g stroke="#e5c56e" stroke-width="4" stroke-linecap="round"><path d="M26 70V58M40 70V42M54 70V40M68 70V48"/></g><g fill="#fffdf2"><circle cx="34" cy="52" r="2.5"/><circle cx="62" cy="60" r="2.5"/></g></symbol>
-  <symbol id="k-chan" viewBox="0 0 100 100"><g transform="rotate(-8 50 50)"><rect x="18" y="22" width="64" height="12" rx="4" fill="#f28ab2"/><rect x="18" y="34" width="64" height="12" rx="2" fill="#fdfdf8"/><rect x="18" y="46" width="64" height="12" rx="2" fill="#5c9e3f"/><rect x="18" y="58" width="64" height="12" rx="2" fill="#fdfdf8"/><rect x="18" y="70" width="64" height="12" rx="4" fill="#5c9e3f"/></g></symbol>
-  <symbol id="k-cup" viewBox="0 0 100 100"><path d="M18 38h64l-8 40H26z" fill="#5c9e3f"/><path d="M18 38h64" stroke="#1e4d2b" stroke-width="3"/><g stroke="#1e4d2b" stroke-width="2" opacity=".5"><path d="M30 42l2 34M50 42v36M70 42l-2 34"/></g><ellipse cx="50" cy="38" rx="30" ry="9" fill="#fdfdf8"/></symbol>
-  <symbol id="k-anchan" viewBox="0 0 100 100"><rect x="20" y="24" width="60" height="56" rx="16" fill="#4b5fd1"/><rect x="20" y="24" width="60" height="18" rx="9" fill="#fdfdf8" opacity=".9"/><circle cx="66" cy="60" r="4" fill="#8f9df0"/></symbol>
-  <symbol id="k-thong" viewBox="0 0 100 100"><g fill="#f0b429"><circle cx="50" cy="40" r="18"/><circle cx="34" cy="62" r="16"/><circle cx="66" cy="62" r="16"/></g><g fill="#ffd56a"><circle cx="44" cy="34" r="5"/><circle cx="30" cy="57" r="4"/><circle cx="61" cy="57" r="4"/></g></symbol>
-  <symbol id="k-leaf" viewBox="0 0 200 120"><path d="M6 64C40 10 150 0 194 40 150 100 50 116 6 64z" fill="#5c9e3f"/><path d="M6 64C70 52 130 46 194 40" stroke="#1e4d2b" stroke-width="3" fill="none"/><g stroke="#4a8a31" stroke-width="2" fill="none"><path d="M50 58l14-30M90 54l16-36M130 50l16-30M60 60l18 30M100 56l22 34M140 50l20 26"/></g></symbol>
- </defs>
-</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="k-leaf" viewBox="0 0 200 120"><path d="M6 64C40 10 150 0 194 40 150 100 50 116 6 64z" fill="#5c9e3f"/><path d="M6 64C70 52 130 46 194 40" stroke="#1e4d2b" stroke-width="3" fill="none"/><g stroke="#4a8a31" stroke-width="2" fill="none"><path d="M50 58l14-30M90 54l16-36M130 50l16-30M60 60l18 30M100 56l22 34M140 50l20 26"/></g></symbol>
+ <symbol id="logo" viewBox="0 0 64 64"><rect width="64" height="64" rx="18" fill="#2b3a99"/><path d="M10 46c8-7 36-7 44 0-8 8-36 8-44 0z" fill="#5c9e3f"/><circle cx="32" cy="34" r="15" fill="#fdfdf8"/><g fill="#d9dccb"><circle cx="26" cy="33" r="1.8"/><circle cx="35" cy="39" r="1.8"/><circle cx="37" cy="29" r="1.8"/></g></symbol>
+</defs></svg>
 
-<header class="hero" id="top">
+<header class="nav" id="nav">
  <div class="wrap">
-  <div class="bar">
-   <a class="mark" href="#top" aria-label="แป้งนุ่ม ขนมไทย หน้าแรก"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="18" fill="#2b3a99"/><path d="M10 46c8-7 36-7 44 0-8 8-36 8-44 0z" fill="#5c9e3f"/><circle cx="32" cy="34" r="15" fill="#fdfdf8"/><g fill="#d9dccb"><circle cx="26" cy="33" r="1.8"/><circle cx="35" cy="39" r="1.8"/><circle cx="37" cy="29" r="1.8"/></g></svg>แป้งนุ่ม</a>
-   <span class="open" id="open">เปิดทุกวัน 08:30–18:00</span>
-  </div>
-  <div class="hero-grid">
-   <div>
-    <h1>แป้งนุ่ม</h1>
-    <p class="sub">ขนมไทย by บุ๋ม</p>
-    <p class="lead">ขนมไทยให้เลือกหลายอย่าง พร้อมอาหารและเครื่องดื่ม ร้านอยู่ริมถนนพุทธมณฑลสาย 5 ศาลายา ติดหอภาพยนตร์</p>
-    <div class="cta"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">ดูเส้นทางไปร้าน</a><a class="btn ghost" href="tel:+66611544422">โทร 061 154 4422</a></div>
-   </div>
-   <div class="case" aria-hidden="true">
-    <div class="layer" data-depth="0.06"><div class="tray" id="tray"></div></div>
-    <div class="layer leaves" data-depth="0.16"><svg class="a" viewBox="0 0 200 120"><use href="#k-leaf"/></svg><svg class="b" viewBox="0 0 200 120"><use href="#k-leaf"/></svg></div>
-    <div class="layer float" data-depth="0.32"><svg class="x" viewBox="0 0 100 100"><use href="#k-tom"/></svg><svg class="y" viewBox="0 0 100 100"><use href="#k-paep"/></svg><svg class="z" viewBox="0 0 100 100"><use href="#k-chan"/></svg></div>
-   </div>
-  </div>
+  <a class="mark" href="#top" aria-label="แป้งนุ่ม ขนมไทย กลับไปบนสุด"><svg aria-hidden="true"><use href="#logo"/></svg>แป้งนุ่ม</a>
+  <ul class="links">
+   <li><a href="#menu">ขนมในร้าน</a></li>
+   <li><a href="#gallery">รูปจากร้าน</a></li>
+   <li><a href="#reviews">รีวิว</a></li>
+   <li><a href="#visit">เวลาเปิดและที่ตั้ง</a></li>
+  </ul>
+  <a class="btn call" href="tel:+66611544422">โทร 061 154 4422</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="เปิดเมนู"><span></span><span></span></button>
  </div>
 </header>
+<nav class="mnav" id="mnav" aria-label="เมนูหลัก">
+ <a href="#menu">ขนมในร้าน</a><a href="#gallery">รูปจากร้าน</a><a href="#reviews">รีวิว</a><a href="#visit">เวลาเปิดและที่ตั้ง</a>
+ <a class="btn" href="tel:+66611544422">โทร 061 154 4422</a>
+</nav>
 
-<main>
- <section class="wrap about">
-  <div>
-   <h2>แป้งนุ่มสมชื่อร้าน</h2>
-   <p>ร้านขนมหวานริมถนนพุทธมณฑลสาย 5 มีขนมไทยหลายอย่างให้เลือกชิม รสหวานกำลังดี และมีอาหารกับเครื่องดื่มให้ทานด้วย ลูกค้าบน Google ให้คะแนนร้าน 4.8 จาก 80 รีวิว</p>
+<main id="top">
+ <section class="hero">
+  <div class="wrap hero-grid">
+   <div>
+    <h1 aria-label="แป้งนุ่ม ขนมไทย"><span class="line" aria-hidden="true"><span>แป้งนุ่ม</span></span><span class="line" aria-hidden="true"><span>ขนมไทย</span></span></h1>
+    <p class="sub" data-hero>by บุ๋ม ศาลายา</p>
+    <p class="lead" data-hero>ขนมไทยให้เลือกหลายอย่าง พร้อมอาหารและเครื่องดื่ม ร้านอยู่ริมถนนพุทธมณฑลสาย 5 ติดหอภาพยนตร์</p>
+    <div class="cta" data-hero><a class="btn magnetic" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">ดูเส้นทางไปร้าน</a><a class="btn ghost" href="tel:+66611544422">โทรหาร้าน</a></div>
+    <p class="proof" data-hero><span>4.8 จาก 80 รีวิวบน Google</span><span class="status" id="open">เปิดทุกวัน 08:30–18:00</span></p>
+   </div>
+   <figure class="stage">
+    <div class="depth" data-depth="0.08" aria-hidden="true"><div class="ring"></div></div>
+    <div class="depth" data-depth="0.22" aria-hidden="true"><svg class="leaf a" viewBox="0 0 200 120"><use href="#k-leaf"/></svg></div>
+    <div class="platter"><picture><source type="image/webp" srcset="img/platter-sm.webp 640w, img/platter.webp 1200w" sizes="(min-width:900px) 46vw, 88vw"><img src="img/platter-sm.jpg" srcset="img/platter-sm.jpg 640w, img/platter.jpg 1200w" sizes="(min-width:900px) 46vw, 88vw" width="1200" height="1200" alt="ถาดขนมไทยบนใบตองของร้าน มีฝอยทอง ทองหยอด เม็ดขนุน และขนมรูปดอกไม้สีพาสเทล" fetchpriority="high"></picture></div>
+    <div class="depth" data-depth="0.4" aria-hidden="true"><svg class="leaf b" viewBox="0 0 200 120"><use href="#k-leaf"/></svg></div>
+    <figcaption>ถาดขนมรวมจากร้าน</figcaption>
+   </figure>
   </div>
-  <ul class="facts">
-   <li><b>เปิด</b><span>ทุกวัน 08:30–18:00</span></li>
-   <li><b>คะแนน</b><span>4.8 จาก 80 รีวิวบน Google</span></li>
-   <li><b>ที่จอดรถ</b><span>มี ลูกค้าบอกว่าจอดสะดวก</span></li>
-  </ul>
+ </section>
+
+ <section class="wrap about" id="about">
+  <figure class="shot">
+   <div class="frame" data-mask><picture><source type="image/webp" srcset="img/shelf-sm.webp 760w, img/shelf.webp 1400w" sizes="(min-width:900px) 62vw, 92vw"><img src="img/shelf-sm.jpg" srcset="img/shelf-sm.jpg 760w, img/shelf.jpg 1400w" sizes="(min-width:900px) 62vw, 92vw" width="1400" height="1050" alt="ตู้ไม้หน้าร้านวางขนมไทยหลายชั้น มีขนมห่อใบตองและขนมใส่กล่อง" loading="lazy" decoding="async"></picture></div>
+  </figure>
+  <div class="copy">
+   <h2>ตู้ขนมหน้าร้าน</h2>
+   <p data-rv>ร้านขนมหวานริมถนนพุทธมณฑลสาย 5 ติดหอภาพยนตร์ ศาลายา ขนมไทยจัดเรียงอยู่ในตู้ไม้ให้เลือกหลายอย่าง และมีอาหารกับเครื่องดื่มให้ทานด้วย</p>
+   <ul class="facts">
+    <li data-rv><b>เปิด</b><span>ทุกวัน 08:30–18:00</span></li>
+    <li data-rv><b>คะแนน</b><span>4.8 จาก 80 รีวิวบน Google</span></li>
+    <li data-rv><b>ที่จอดรถ</b><span>มี ลูกค้ารีวิวว่าจอดสะดวก</span></li>
+   </ul>
+  </div>
  </section>
 
  <section class="menu" id="menu">
   <div class="wrap">
-   <h2>ในตู้ขนม</h2>
+   <div class="head"><h2>ขนมในร้าน</h2><p data-rv>อยากรู้ว่าวันนี้มีอะไรบ้าง โทรถามร้านได้ที่ <a href="tel:+66611544422">061 154 4422</a></p></div>
    <ul class="rows">
-    <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#k-tom"/></svg><div><h3>ขนมต้ม</h3><p>เมนูที่ลูกค้าพูดถึงว่าขายดีที่สุดของร้าน</p></div></li>
-    <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#k-paep"/></svg><div><h3>ถั่วแปบ</h3><p>อีกเมนูขายดี มักถูกพูดถึงคู่กับขนมต้ม</p></div></li>
-    <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#k-chan"/></svg><div><h3>ขนมไทยอีกหลายอย่าง</h3><p>หวานกำลังดี เลือกชิมได้หลายชิ้นในครั้งเดียว</p></div></li>
-    <li><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#k-cup"/></svg><div><h3>อาหารและเครื่องดื่ม</h3><p>นอกจากขนม ร้านมีอาหารและเครื่องดื่มให้ทานด้วย</p></div></li>
+    <li data-rv><h3>ขนมต้ม</h3><p>ลูกค้ารีวิวว่าขายดีเป็นอันดับหนึ่งของร้าน</p></li>
+    <li data-rv><h3>ถั่วแปบ</h3><p>อีกเมนูขายดีที่ลูกค้าพูดถึงคู่กับขนมต้ม</p></li>
+    <li data-rv><h3>ฝอยทอง ทองหยอด เม็ดขนุน</h3><p>ขนมสีทองที่อยู่ในถาดขนมรวมของร้าน</p></li>
+    <li data-rv><h3>ขนมรูปดอกไม้</h3><p>ขนมสีพาสเทลที่จัดอยู่ในถาดเดียวกัน</p></li>
+    <li data-rv><h3>อาหารและเครื่องดื่ม</h3><p>นอกจากขนมไทย ร้านมีอาหารและเครื่องดื่มให้ทานด้วย</p></li>
    </ul>
-   <p class="note">อยากรู้ว่าวันนี้มีขนมอะไร โทรถามร้านได้ที่ <a href="tel:+66611544422">061 154 4422</a></p>
   </div>
  </section>
 
- <section class="voices">
+ <section class="gallery" id="gallery">
+  <div class="wrap">
+   <h2>รูปจากร้าน</h2>
+   <div class="grid">
+    <div class="frame g1" data-mask><picture><source type="image/webp" srcset="img/gold.webp"><img src="img/gold.jpg" width="700" height="547" alt="ฝอยทอง เม็ดขนุน และทองหยอดเรียงบนถาด" loading="lazy" decoding="async"></picture></div>
+    <div class="frame" data-mask><picture><source type="image/webp" srcset="img/leaf.webp"><img src="img/leaf.jpg" width="600" height="428" alt="ขนมห่อใบตองวางเรียงในตู้ขนม" loading="lazy" decoding="async"></picture></div>
+    <div class="frame" data-mask><picture><source type="image/webp" srcset="img/flower.webp"><img src="img/flower.jpg" width="700" height="572" alt="ขนมรูปดอกไม้สีพาสเทลบนใบตอง" loading="lazy" decoding="async"></picture></div>
+   </div>
+   <p class="credit" data-rv>รูปทั้งหมดเป็นรูปที่ร้านอัปโหลดไว้บน Google Maps</p>
+  </div>
+ </section>
+
+ <section class="voices" id="reviews">
   <div class="wrap">
    <h2>ลูกค้าเล่าให้ฟัง</h2>
-   <blockquote>“ขนมแป้งนุ่มสมชื่อร้าน ความหวานถูกใจ ขายดีทุกอย่างแต่ที่เบอร์1 น่าจะเป็นขนมต้ม/ถั่วแปบ”<cite>Kornravee r, รีวิวบน Google Maps</cite></blockquote>
-   <blockquote>“ขนมน่ารักปุ๊กปิ๊กมากๆ หวานกำลังดีไม่มากเกินไป เหมาะกับคนอยากชิมหลายๆอย่าง”<cite>Kitty Talk, รีวิวบน Google Maps</cite></blockquote>
-   <blockquote>“ขนมไทยมีให้เลือกเยอะ ราคาไม่แพง”<cite>Rasamee T., รีวิวบน Google Maps</cite></blockquote>
+   <p class="score" data-rv>4.8 จาก 80 รีวิวบน Google Maps</p>
+   <blockquote data-rv>“ขนมแป้งนุ่มสมชื่อร้าน ความหวานถูกใจ ขายดีทุกอย่างแต่ที่เบอร์1 น่าจะเป็นขนมต้ม/ถั่วแปบ”<cite>Kornravee r, รีวิวบน Google Maps</cite></blockquote>
+   <blockquote data-rv>“ขนมน่ารักปุ๊กปิ๊กมากๆ หวานกำลังดีไม่มากเกินไป เหมาะกับคนอยากชิมหลายๆอย่าง”<cite>Kitty Talk, รีวิวบน Google Maps</cite></blockquote>
+   <blockquote data-rv>“ขนมไทยมีให้เลือกเยอะ ราคาไม่แพง”<cite>Rasamee T., รีวิวบน Google Maps</cite></blockquote>
   </div>
  </section>
 
  <section class="wrap visit" id="visit">
-  <div class="sign">
+  <div class="sign" data-mask>
    <h2>เวลาเปิดร้าน</h2>
    <p class="hours">08:30–18:00</p>
    <p>เปิดทุกวัน จันทร์ถึงอาทิตย์</p>
@@ -227,56 +279,93 @@ a:not(.btn){text-decoration-thickness:2px;text-underline-offset:4px;transition:c
   </div>
   <div>
    <h2>ที่ตั้งร้าน</h2>
-   <p>ก่อนแยกไฟแดง ติดหอภาพยนตร์ มุ่งหน้าถนนพุทธมณฑลสาย 5 ตำบลศาลายา อำเภอพุทธมณฑล นครปฐม 73170</p>
-   <p style="margin-top:20px"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">เปิดเส้นทางใน Google Maps</a></p>
+   <p data-rv>ก่อนแยกไฟแดง ติดหอภาพยนตร์ มุ่งหน้าถนนพุทธมณฑลสาย 5 ตำบลศาลายา อำเภอพุทธมณฑล นครปฐม 73170</p>
+   <p data-rv style="margin-top:22px"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">เปิดเส้นทางใน Google Maps</a></p>
   </div>
  </section>
 </main>
 
 <footer>
  <div class="wrap">
+  <h2>แวะมาชิม หรือโทรถามก่อนก็ได้</h2>
   <a class="big" href="tel:+66611544422">061 154 4422</a>
   <p>ร้านแป้งนุ่มขนมไทย by บุ๋ม ถนนพุทธมณฑลสาย 5 ศาลายา นครปฐม 73170</p>
-  <p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">ดูเส้นทาง</a></p>
-  <small>ข้อมูลร้านจาก Google Maps</small>
+  <div class="row"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">ดูเส้นทาง</a><a class="btn ghost" href="https://maps.app.goo.gl/9uf2aduJe5j9QstY6" rel="noopener">ดูร้านบน Google Maps</a></div>
+  <small>ข้อมูลร้าน รีวิว และรูป จาก Google Maps</small>
  </div>
 </footer>
 <nav class="dock" aria-label="ติดต่อร้าน"><a class="btn" href="tel:+66611544422">โทรหาร้าน</a><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.8004845,100.3034224" rel="noopener">ดูเส้นทาง</a></nav>
 
 <script>
-(()=>{
- // fill the tray with decorative pieces; CSS staggers the pop-in via --i
- const kinds=['tom','chan','paep','anchan','thong','cup','tom','paep','chan','tom','thong','anchan','cup','tom','paep','chan','tom','anchan','paep','thong'];
- document.getElementById('tray').innerHTML=kinds.map((k,i)=>`<svg viewBox="0 0 100 100" style="--i:${i}"><use href="#k-${k}"/></svg>`).join('');
+document.addEventListener('DOMContentLoaded',()=>{
+ const R=document.documentElement,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+ // mobile menu
+ const btn=$('.menu-btn'),panel=$('#mnav');
+ const setOpen=o=>{btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'ปิดเมนู':'เปิดเมนู');panel.classList.toggle('open',o)};
+ btn.addEventListener('click',()=>setOpen(btn.getAttribute('aria-expanded')!=='true'));
+ panel.addEventListener('click',e=>{if(e.target.closest('a'))setOpen(false)});
+ addEventListener('keydown',e=>{if(e.key==='Escape'&&btn.getAttribute('aria-expanded')==='true'){setOpen(false);btn.focus()}});
 
  // shortcut: open-now badge ignores holiday hours, which Maps says may differ
- const el=document.getElementById('open');
  const [h,mi]=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()).split(':').map(Number);
- const m=h*60+mi;
- if(m>=510&&m<1080){el.textContent='เปิดอยู่ ปิด 18:00';el.classList.add('is-open')}else el.textContent='ปิดแล้ว เปิด 08:30';
+ const m=h*60+mi,open=$('#open');
+ if(m>=510&&m<1080){open.textContent='เปิดอยู่ตอนนี้ ปิด 18:00';open.classList.add('is-open')}else open.textContent='ตอนนี้ปิด เปิด 08:30';
 
- // reveals only when the head script opted in (IO present, motion allowed); otherwise content stays plainly visible
- if(!document.documentElement.classList.contains('js'))return;
- // headings: Thai has no spaces, so segment words; screen readers get the whole heading via aria-label
- const seg=Intl.Segmenter?new Intl.Segmenter('th',{granularity:'word'}):null;
- document.querySelectorAll('h1,h2').forEach(hd=>{
-  const t=hd.textContent;hd.setAttribute('aria-label',t);hd.textContent='';
-  [...(seg?seg.segment(t):[{segment:t}])].forEach((s,i)=>{const w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');w.style.setProperty('--i',i);w.textContent=s.segment;hd.append(w)});
- });
- document.querySelector('.sign').classList.add('mask');
- const items=[...document.querySelectorAll('h1,h2,.hero .sub,.hero .lead,.cta,.about p,.facts li,.rows li,.menu .note,.voices blockquote,.visit>div,footer .wrap>*')];
- items.forEach(e=>e.dataset.rv='');
- // stagger = position among revealing siblings, so each group counts from 0
- items.forEach(e=>e.style.setProperty('--d',[...e.parentElement.children].filter(c=>'rv' in c.dataset).indexOf(e)));
- // a jump (anchor link, fast fling, mid-page reload) never fires IO for what it skipped, so reveal everything above the hit too
- const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)items.slice(0,items.indexOf(x.target)+1).forEach(e=>{e.classList.add('in');io.unobserve(e)})}),{rootMargin:'0px 0px -8% 0px'});
- items.forEach(e=>io.observe(e));
+ // h2s get the same masked-line treatment as the h1
+ $$('h2').forEach(t=>{const line=document.createElement('span'),inner=document.createElement('span');line.className='line';inner.append(...t.childNodes);line.append(inner);t.append(line)});
 
- // scroll parallax, transform only
- const L=[...document.querySelectorAll('.layer')],H=document.querySelector('.hero');let raf=0;
- const up=()=>{raf=0;const y=scrollY;if(y>H.offsetHeight)return;for(const l of L)l.style.transform=`translate3d(0,${(-y*l.dataset.depth).toFixed(1)}px,0)`};
- addEventListener('scroll',()=>{raf||(raf=requestAnimationFrame(up))},{passive:true});
-})();
+ const nav=$('#nav');
+ if(!window.gsap||!window.ScrollTrigger){R.classList.remove('pre');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});return}
+ gsap.registerPlugin(ScrollTrigger);
+ ScrollTrigger.create({start:40,end:'max',onToggle:s=>nav.classList.toggle('solid',s.isActive)});
+
+ // reduced motion keeps fades and mask wipes, drops travel, zoom, parallax and magnetism
+ const run=full=>{
+  const E='expo.out';
+  R.classList.remove('pre');
+
+  const tl=gsap.timeline({defaults:{ease:E}});
+  tl.fromTo('.platter',{clipPath:'circle(0% at 50% 50%)'},{clipPath:'circle(50% at 50% 50%)',duration:1.6,ease:'expo.inOut'},0)
+    .from('.hero h1 .line>span',full?{yPercent:200,duration:1.3,stagger:.12}:{opacity:0,duration:.9,stagger:.15},.35)
+    .from('.hero [data-hero]',{opacity:0,y:full?22:0,duration:1,stagger:.1},.75)
+    .from('.stage .depth',{opacity:0,duration:1.2,stagger:.1},.9);
+  if(full)tl.from('.platter img',{scale:1.3,rotate:-20,duration:2.2},0);
+
+  if(full){
+   const hero={trigger:'.hero',start:'top top',end:'bottom top',scrub:true};
+   gsap.to('.platter img',{rotate:30,ease:'none',scrollTrigger:hero});
+   gsap.to('.platter',{yPercent:-10,scale:.92,ease:'none',scrollTrigger:hero});
+   $$('.stage .depth').forEach(d=>gsap.to(d,{yPercent:-100*d.dataset.depth,ease:'none',scrollTrigger:hero}));
+   gsap.to('.ring',{rotate:-40,ease:'none',scrollTrigger:hero});
+   gsap.fromTo('.voices',{clipPath:'inset(0% 4% 0% 4% round 40px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'none',scrollTrigger:{trigger:'.voices',start:'top bottom',end:'top 30%',scrub:true}});
+  }
+
+  $$('h2 .line>span').forEach(s=>gsap.from(s,{...(full?{yPercent:200}:{opacity:0}),duration:1.1,ease:E,scrollTrigger:{trigger:s.closest('h2'),start:'top 88%',once:true}}));
+
+  $$('[data-mask]').forEach(f=>{
+   gsap.fromTo(f,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:f,start:'top 85%',once:true}});
+   const img=f.querySelector('img');
+   if(full&&img)gsap.fromTo(img,{scale:1.18,yPercent:-4},{scale:1,yPercent:4,ease:'none',scrollTrigger:{trigger:f,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+
+  gsap.set('[data-rv]',{opacity:0,y:full?28:0});
+  ScrollTrigger.batch('[data-rv]',{start:'top 92%',once:true,onEnter:b=>gsap.to(b,{opacity:1,y:0,duration:1,ease:E,stagger:.09,overwrite:true})});
+
+  // magnetic primary CTA, desktop pointers only
+  const off=[];
+  if(full&&matchMedia('(pointer:fine)').matches)$$('.magnetic').forEach(el=>{
+   const x=gsap.quickTo(el,'x',{duration:.5,ease:'power3'}),y=gsap.quickTo(el,'y',{duration:.5,ease:'power3'});
+   const mv=e=>{const r=el.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.3);y((e.clientY-r.top-r.height/2)*.4)},lv=()=>{x(0);y(0)};
+   el.addEventListener('pointermove',mv);el.addEventListener('pointerleave',lv);off.push(()=>{el.removeEventListener('pointermove',mv);el.removeEventListener('pointerleave',lv)});
+  });
+  return()=>off.forEach(f=>f());
+ };
+ const mm=gsap.matchMedia();
+ // ?motion=full previews the full choreography on a machine set to reduce motion
+ if(/[?&]motion=full\b/.test(location.search))mm.add('all',()=>run(true));
+ else mm.add({full:'(prefers-reduced-motion: no-preference)',calm:'(prefers-reduced-motion: reduce)'},ctx=>run(ctx.conditions.full));
+});
 </script>
 </body>
 </html>
